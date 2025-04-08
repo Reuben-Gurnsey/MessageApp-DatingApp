@@ -1,0 +1,27 @@
+{% extends 'layout.html' %} {% block content %}
+<form method="post" class="buttons">
+  <div class="friends-list">
+    <h1>Friends List</h1>
+    <ul class="list-group" id="friend_list">
+      {% for user in friends %}
+      <li class="list-group-item">
+        <form method="POST" action="{{ url_for('friendsList') }}">
+            <input type="hidden" name="friend_ID" class="form-control" value="{{ user.id }}" />
+            <button type="submit" name="join" class="btn btn-primary">-Chat</button>
+            {{ user.first_name }}
+        </form>
+      </li>
+      {% endfor %}
+    </ul>
+<div>
+
+  
+  
+  
+  {% if error %}
+  <ul>
+    <li>{{error}}</li>
+  </ul>
+  {% endif %}
+</form>
+{% endblock %}

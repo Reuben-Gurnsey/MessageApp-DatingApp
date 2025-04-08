@@ -1,0 +1,61 @@
+{% extends "layout.html" %} {% block title %}Changed{% endblock %}
+
+{% block content %}
+<h1 align="center">Profile</h1>
+<h2 align="center">{{current_user.first_name}}</h2>
+
+<div class="friends-list">
+    <h1>Friends List</h1>
+    <ul class="list-group" id="friend_list">
+      {% for friend in friends %}
+      <li class="list-group-item">
+        <form method="POST" action="{{ url_for('remove_friend') }}">
+            <input type="hidden" name="friend_id" class="form-control" value="{{ friend.id }}" />
+            <button type="submit" name="join" class="btn btn-primary">-Chat</button>
+            {{ friend.first_name }}
+            <input type="hidden" name="friend_id" class="form-control" value="{{ friend.id }}" />
+            <button type="submit" class="btn btn-primary">-Remove</button>
+        </form>
+      </li>
+      {% endfor %}
+    </ul>
+<div>
+
+
+<article class="profile_backdrop">
+    <form method="POST" enctype="multipart/form-data">
+        <h3 aligh="center">Update Profile</h3>
+        <div class="form-group">
+            <label for="profile_pic">Profile Picture</label>
+            <input 
+            type="file" 
+            class="form-control" 
+            id="profile_pic" 
+            name="profile_pic"
+            accept="image/*"
+            />
+        </div>
+        <div class="form-group">
+             <label for="firstName">Update Name</label>
+             <input 
+             type="name" 
+             class="form-control" 
+             id="firstName" 
+             name="firstName"
+             placeholder="Enter first name"
+             />
+         </div>
+         <br />
+         <button type="submit" class="btn btn-primary">Submit</button>
+         
+     
+     </form>
+
+
+
+</article>
+
+    
+
+
+{% endblock %}

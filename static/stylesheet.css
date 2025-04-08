@@ -1,0 +1,11 @@
+.light-blue {
+    background-color: #add8e6; /* Light blue color */
+}
+
+.navbar-light-blue .navbar-nav .nav-link {
+    color: #add8e6; /* Adjust text color if needed */
+}
+
+.navbar-light-blue .navbar-brand {
+    color: white; /* Adjust brand text color if needed */
+}
